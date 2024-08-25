@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
 const pizzaData = [
   {
     name: "Focaccia",
@@ -60,7 +59,7 @@ function Header() {
   // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
   const style = {};
   return (
-    <header className="header">
+    <header className="header footer">
       <h1 style={style}>Fast React Pizza Co.</h1>
     </header>
   );
@@ -72,33 +71,32 @@ function Menu() {
       <h2>Our Menu</h2>
       <Pizza
         name="Pizza Spinaci"
-        ingridients="Tomato, mozarella, spinach, and ricotta cheese"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
         photoName="pizzas/spinaci.jpg"
-        price="10"
+        price={10}
       />
+
       <Pizza
         name="Pizza Funghi"
-        ingridients="Tomato,Mushrooms"
+        ingredients="Tomato, Mushrooms"
+        price={12}
         photoName="pizzas/funghi.jpg"
-        price="12"
       />
     </main>
   );
 }
 function Pizza(props) {
-  console.log(props);
   return (
-    <div className="pizza">
+    <div class="pizza">
       <img src={props.photoName} alt={props.name}></img>
       <div>
         <h3>{props.name}</h3>
-        <p>{props.ingridients}</p>
-        <span>{props.price}</span>
+        <p>{props.ingredients}</p>
+        <span>{props.price + 3}</span>
       </div>
     </div>
   );
 }
-
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
