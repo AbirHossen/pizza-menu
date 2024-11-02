@@ -124,6 +124,25 @@ function Footer() {
   // alert(str);
 
   // return React.createElement("footer", null, "We're currently open!");
+
+  //IF I HAD TO MUST USE IF ELSE THEN USE IT OUTSIDE FSX AND INCLUDE IT IN A {}
+  // let msg = "";
+  // if (isOpen) {
+  //   msg = "We're open until" + closeHour + ":00. Come visit us or order oline.";
+  // } else {
+  //   msg =
+  //     "We are happy to welcome you betweetn " +
+  //     openHour +
+  //     ":00 to " +
+  //     closeHour +
+  //     ":00.";
+  // }
+  // return (
+  //   <footer className="footer">
+  //     <p>{msg}</p>
+  //   </footer>
+  // );
+
   return (
     <footer className="footer">
       {isOpen ? (
