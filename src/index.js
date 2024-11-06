@@ -98,17 +98,18 @@ function Menu() {
     </main>
   );
 }
-function Pizza(props) {
-  console.log(props);
+//destructing props
+function Pizza({ pizzaObj }) {
+  console.log(pizzaObj);
   //conditional rendering with multiple return
-  if (props.pizzaObj.soldOut) return null;
+  if (pizzaObj.soldOut) return null;
   return (
     <li class="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name}></img>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name}></img>
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price + 3}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price + 3}</span>
       </div>
     </li>
   );
@@ -157,7 +158,7 @@ function Footer() {
     <footer className="footer">
       {isOpen ? (
         //extracting JSX into a new component
-        <Order closeHours={closeHour} />
+        <Order closeHours={closeHour} openHours={openHour} />
       ) : (
         <p>
           We are happy to welcome you betweetn {openHour}:00 to {closeHour}:00.
@@ -166,11 +167,13 @@ function Footer() {
     </footer>
   );
 }
-function Order(props) {
+//destructing props
+function Order({ closeHours, openHours }) {
   return (
     <div className="order">
       <p>
-        We're open until {props.closeHours}:00. Come visit us or order oline.
+        We're open from {openHours}:00 to {closeHours}:00. Come visit us or
+        order oline.
       </p>
       <button className="btn">Order</button>
     </div>
