@@ -99,6 +99,9 @@ function Menu() {
   );
 }
 function Pizza(props) {
+  console.log(props);
+  //conditional rendering with multiple return
+  if (props.pizzaObj.soldOut) return null;
   return (
     <li class="pizza">
       <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name}></img>
@@ -143,11 +146,19 @@ function Footer() {
   //   </footer>
   // );
 
+  // if (!isOpen)
+  //   return (
+  //     <p>
+  //       We are happy to welcome you betweetn {openHour}:00 to {closeHour}:00.
+  //     </p>
+  //   );
+
   return (
     <footer className="footer">
       {isOpen ? (
         <div className="order">
           <p>We're open until {closeHour}:00. Come visit us or order oline.</p>
+          <button className="btn">Order</button>
         </div>
       ) : (
         <p>
